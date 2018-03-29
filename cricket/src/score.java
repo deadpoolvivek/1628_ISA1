@@ -53,14 +53,15 @@ public class score {
 		System.out.println("ball :" +getBall());
 	}
 	
-	public String Totalruns()
+	public int Totalruns()
 	{
-	    int sum = Arrays.stream(runs.trim().split("\\s+"))
+	String	run=this.getRuns();
+	    int sum = Arrays.stream(run.trim().split("\\s+"))
                 .mapToInt(Integer::parseInt)
                 .sum();
-System.out.println(sum);
+	    	System.out.println(sum);
 	
-		return runs;
+		return sum;
 		
         
     }

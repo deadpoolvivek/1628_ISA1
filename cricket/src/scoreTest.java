@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 
+import java.util.Arrays;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,7 +16,17 @@ public class scoreTest {
 		over2 = new score("2","1 2 3 4 5 6","0 1 2 3 4 5 6");
 		over3 = new score("3","1 2 3 4 5 6","0 1 2 3 4 5 6");
 
-		total=total+over1.Totalruns()+over2.Totalruns()+over3.Totalruns();
+		int sum = Arrays.stream(over1.getRuns().trim().split("\\s+"))
+                .mapToInt(Integer::parseInt)
+                .sum();
+		int sum1 = Arrays.stream(over2.getRuns().trim().split("\\s+"))
+                .mapToInt(Integer::parseInt)
+                .sum();
+		int sum2 = Arrays.stream(over3.getRuns().trim().split("\\s+"))
+                .mapToInt(Integer::parseInt)
+                .sum();
+		total=total+sum;
+		
 	}
 
 	@Test
@@ -24,7 +36,7 @@ public class scoreTest {
 		over1.displayDetails();
 		over2.displayDetails();
 		over3.displayDetails();
-		
+		System.out.println("-----Total runs-----:- "+total);
 	}
 
 
